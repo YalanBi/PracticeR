@@ -92,41 +92,62 @@ while(x < 10){
 #Q2.5
 > cat("\\I say:\"Escaping stauff is great.\"\\")
 \I say:"Escaping stauff is great."
+
 #Q2.6
-l <- 1
-np <- 0
-while(l<3){
-	while(np<2-l){
-		cat(" ")
-		np <- np+1
-	}
-	while(np<7+l){
-		cat("#")
-		np <- np+1
-	}
-	while(np<9){
-		cat(" ")
-		np <- np+1
-	}
-	cat("\n")
+diamond <- function(){
+	l <- 1
 	np <- 0
-	l <- l+1
+	while(l<3){
+		while(np< (2-l)){
+			cat(" ")
+			np <- np+1
+		}
+		while(np< (7+l)){
+			cat("#")
+			np <- np+1
+		}
+		while(np < 9){
+			cat(" ")
+			np <- np+1
+		}
+		cat("\n")
+		np <- 0
+		l <- l+1
+	}
+	np <- 0
+	while(l<7){
+		while(np<l-1){
+			cat(" ")
+			np <- np+1
+		}
+		while(np<12-l){
+			cat("#")
+			np <- np+1
+		}
+		while(np<9){
+			cat(" ")
+			np <- np+1
+		}
+		cat("\n")
+		np <- 0
+		l <- l+1
+	}
 }
-np <- 0
-while(l<7){
-	while(np<l-1){
-		cat(" ")
-		np <- np+1
-	}
-	while(np<12-l){
-		cat("#")
-		np <- np+1
-	}
-	while(np<9){
-		cat(" ")
-		np <- np+1
-	}
-	cat("\n")
-	np <- 0
-	l <- l+1
+diamond()
+
+largerthen <- function(x, n){
+	if(x > n) return(TRUE)
+	return(FALSE)
+}
+
+somestuff <- function(x, n, p){
+  #do..stuff
+  largerthen(x,n)
+  #do some more stuff
+  #return
+}
+
+
+for(x in 1:length(names1)){
+	if(any(names2 == names1[x])) cat(x,"\n")
 }
