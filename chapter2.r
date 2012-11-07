@@ -116,15 +116,15 @@ diamond <- function(){
 	}
 	np <- 0
 	while(l<7){
-		while(np<l-1){
+		while(np<l-2){
 			cat(" ")
 			np <- np+1
 		}
-		while(np<12-l){
+		while(np<11-l){
 			cat("#")
 			np <- np+1
 		}
-		while(np<9){
+		while(np<8){
 			cat(" ")
 			np <- np+1
 		}
@@ -135,64 +135,15 @@ diamond <- function(){
 }
 diamond()
 
+#Compare two numbers
 largerthen <- function(x, n){
 	if(x > n) return(TRUE)
 	return(FALSE)
 }
-
+#Compare more numbers
 somestuff <- function(x, n, p){
   #do..stuff
   largerthen(x,n)
   #do some more stuff
   #return
 }
-
-
-for(x in 1:length(names1)){
-	if(any(names2 == names1[x])) cat(x,"\n")
-}
-
-> names1 <- paste("ind",1:10)
-> names2 <- paste("ind",5:20)
-> names1
- [1] "ind 1"  "ind 2"  "ind 3"  "ind 4"  "ind 5"  "ind 6"  "ind 7"  "ind 8" 
- [9] "ind 9"  "ind 10"
-> names2
- [1] "ind 5"  "ind 6"  "ind 7"  "ind 8"  "ind 9"  "ind 10" "ind 11" "ind 12"
- [9] "ind 13" "ind 14" "ind 15" "ind 16" "ind 17" "ind 18" "ind 19" "ind 20"
-> names1 %in% names2
- [1] FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
-> which(names1 %in% names2)
-[1]  5  6  7  8  9 10
-> idx <- which(names1 %in% names2)
-> names[idx]
-Error in names[idx] : object of type 'builtin' is not subsettable
-> names1[idx]
-[1] "ind 5"  "ind 6"  "ind 7"  "ind 8"  "ind 9"  "ind 10"
-> idx <- which(names2 %in% names1)
-> names1[idx]
-[1] "ind 1" "ind 2" "ind 3" "ind 4" "ind 5" "ind 6"
-> names2[idx]
-[1] "ind 5"  "ind 6"  "ind 7"  "ind 8"  "ind 9"  "ind 10"
-> 
-> 
-> for(x in 1:length(names1)){
-+ if(any(names2 == names1[x])) cat(x,"\n")
-+ }
-5 
-6 
-7 
-8 
-9 
-10 
-> names1
- [1] "ind 1"  "ind 2"  "ind 3"  "ind 4"  "ind 5"  "ind 6"  "ind 7"  "ind 8" 
- [9] "ind 9"  "ind 10"
-> length(names1)
-[1] 10
-> names1[1]
-[1] "ind 1"
-> names1[2]
-[1] "ind 2"
-> which(names1 %in% names2)
-[1]  5  6  7  8  9 10
