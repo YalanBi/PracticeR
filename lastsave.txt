@@ -1,0 +1,1272 @@
+
+R version 2.15.2 (2012-10-26) -- "Trick or Treat"
+Copyright (C) 2012 The R Foundation for Statistical Computing
+ISBN 3-900051-07-0
+Platform: i386-w64-mingw32/i386 (32-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> matrix(runif(100),10,10)
+           [,1]       [,2]       [,3]       [,4]         [,5]       [,6]      [,7]      [,8]       [,9]     [,10]
+ [1,] 0.5303026 0.34350408 0.78862474 0.87965009 6.839938e-01 0.46792503 0.8004131 0.2934271 0.76401033 0.5190438
+ [2,] 0.5830427 0.44073930 0.10158507 0.99894289 2.899466e-02 0.37711117 0.2542425 0.4719152 0.37544764 0.5877304
+ [3,] 0.9075826 0.17318878 0.24691149 0.08417640 9.547004e-01 0.09187908 0.6300817 0.4720379 0.49400509 0.6006113
+ [4,] 0.7558492 0.74697998 0.17764878 0.43849518 1.542447e-01 0.98543571 0.2293894 0.2635995 0.30723564 0.1956284
+ [5,] 0.1135078 0.14024092 0.60931168 0.49152598 2.364494e-01 0.14106382 0.5254481 0.4861859 0.88123236 0.4176095
+ [6,] 0.2121333 0.19171394 0.48860244 0.67065952 7.444704e-02 0.77929548 0.5398397 0.2140179 0.51137312 0.3784528
+ [7,] 0.6819543 0.06138284 0.04030453 0.02119861 3.595643e-01 0.30400783 0.8937680 0.8062777 0.03486247 0.7182907
+ [8,] 0.9423682 0.33381575 0.27553423 0.18722990 4.512643e-01 0.49514777 0.2556424 0.2365583 0.62813811 0.5551253
+ [9,] 0.1144475 0.39142360 0.46167838 0.54065900 6.530033e-01 0.54768742 0.2354009 0.8759366 0.57730023 0.5511865
+[10,] 0.8633364 0.64369040 0.72653728 0.61147034 5.285675e-05 0.54450938 0.7867136 0.3885213 0.98956485 0.7291263
+> x <- matrix(runif(100),10,10)
+> dimnames(x)[[1]] <- letters[1:10]
+> x
+       [,1]        [,2]       [,3]      [,4]      [,5]       [,6]      [,7]       [,8]       [,9]      [,10]
+a 0.3911011 0.584547945 0.64096802 0.7844855 0.3919579 0.67598333 0.8293076 0.78216581 0.46169848 0.26323961
+b 0.1208269 0.263283457 0.99326347 0.4622138 0.7185275 0.84220187 0.8093240 0.17593163 0.21693698 0.13178716
+c 0.9630318 0.814607559 0.07547546 0.5294554 0.6853784 0.89924560 0.8967726 0.46341459 0.31851097 0.79696570
+d 0.6352229 0.450566111 0.47205883 0.0802690 0.9828208 0.36746982 0.7572652 0.41792158 0.02406301 0.32061695
+e 0.9626586 0.085191773 0.27943983 0.1243617 0.8139963 0.73372588 0.8267874 0.25270134 0.82893538 0.12143577
+f 0.1412473 0.233023906 0.17614754 0.2987313 0.8854952 0.80920050 0.9020308 0.59686273 0.26742090 0.01149217
+g 0.6044494 0.431340725 0.97135783 0.5536510 0.3487358 0.03140643 0.9147327 0.41346579 0.17921837 0.72768797
+h 0.8574895 0.058932429 0.41736054 0.2581917 0.1097504 0.59576145 0.3086146 0.16715048 0.51702053 0.09624035
+i 0.7101185 0.595778319 0.63338192 0.8816033 0.5923317 0.18052148 0.9814518 0.27661131 0.76800597 0.72451656
+j 0.9588490 0.004308255 0.60547784 0.5793413 0.1801513 0.83191762 0.2577093 0.03341516 0.20837395 0.11039279
+> x <- matrix(runif(100),10,10)
+> dimnames(x)[[1]] <- letters[1:10]
+> 
+> x <- matrix(runif(100,10,10),10,10)
+> dimnames(x)[[1]] <- letters[1:10]
+> x
+  [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10]
+a   10   10   10   10   10   10   10   10   10    10
+b   10   10   10   10   10   10   10   10   10    10
+c   10   10   10   10   10   10   10   10   10    10
+d   10   10   10   10   10   10   10   10   10    10
+e   10   10   10   10   10   10   10   10   10    10
+f   10   10   10   10   10   10   10   10   10    10
+g   10   10   10   10   10   10   10   10   10    10
+h   10   10   10   10   10   10   10   10   10    10
+i   10   10   10   10   10   10   10   10   10    10
+j   10   10   10   10   10   10   10   10   10    10
+> runif(100,10,10)
+  [1] 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10
+ [38] 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10
+ [75] 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10
+> runif(100)
+  [1] 0.40787302 0.75705138 0.95139236 0.72988705 0.61748694 0.94367540 0.91220698 0.71637653 0.15790164 0.04657972
+ [11] 0.70760504 0.51827091 0.53358334 0.43874993 0.11061559 0.46596004 0.69987146 0.83920725 0.76986748 0.66377615
+ [21] 0.74942191 0.12688287 0.89529335 0.13389753 0.15674165 0.64093335 0.65735027 0.34461848 0.16693277 0.17617961
+ [31] 0.91211556 0.50673648 0.31362052 0.69885415 0.76816751 0.15850857 0.40936277 0.80744883 0.54184067 0.23059469
+ [41] 0.90183629 0.01916036 0.67789054 0.71969913 0.44523614 0.66209436 0.36142439 0.28526216 0.73246330 0.96578905
+ [51] 0.27563699 0.14003043 0.50943096 0.60477460 0.51016527 0.22414839 0.24633519 0.36187572 0.89837518 0.68458784
+ [61] 0.78291556 0.24559910 0.83167999 0.22694286 0.48231136 0.04843820 0.91272387 0.02496766 0.07491769 0.04051583
+ [71] 0.15935423 0.26316842 0.13280749 0.31169905 0.56896182 0.34970883 0.29008557 0.47179798 0.69945699 0.56381727
+ [81] 0.48220271 0.24928970 0.11956087 0.96343951 0.19565738 0.57866413 0.68154869 0.11448938 0.40511096 0.05990890
+ [91] 0.59472703 0.19654195 0.03523867 0.53549404 0.62375122 0.87005916 0.99566634 0.28764535 0.64508662 0.73780893
+> apply(x, 2, mean)
+ [1] 10 10 10 10 10 10 10 10 10 10
+> x <- matrix(runif(100),10,10)
+> dimnames(x)[[1]] <- letters[1:10]
+> apply(x, 2, mean)
+ [1] 0.5607292 0.5008624 0.4115244 0.5096058 0.5797514 0.5225292 0.4152880 0.3799516 0.6243922 0.4673704
+> x <- matrix(1:100,10,10)
+> dimnames(x)[[1]] <- letters[1:10]
+> apply(x, 2, mean)
+ [1]  5.5 15.5 25.5 35.5 45.5 55.5 65.5 75.5 85.5 95.5
+> apply(x, 1, mean)
+ a  b  c  d  e  f  g  h  i  j 
+46 47 48 49 50 51 52 53 54 55 
+> x
+  [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10]
+a    1   11   21   31   41   51   61   71   81    91
+b    2   12   22   32   42   52   62   72   82    92
+c    3   13   23   33   43   53   63   73   83    93
+d    4   14   24   34   44   54   64   74   84    94
+e    5   15   25   35   45   55   65   75   85    95
+f    6   16   26   36   46   56   66   76   86    96
+g    7   17   27   37   47   57   67   77   87    97
+h    8   18   28   38   48   58   68   78   88    98
+i    9   19   29   39   49   59   69   79   89    99
+j   10   20   30   40   50   60   70   80   90   100
+>  matrix(1:100,10,10)
+      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10]
+ [1,]    1   11   21   31   41   51   61   71   81    91
+ [2,]    2   12   22   32   42   52   62   72   82    92
+ [3,]    3   13   23   33   43   53   63   73   83    93
+ [4,]    4   14   24   34   44   54   64   74   84    94
+ [5,]    5   15   25   35   45   55   65   75   85    95
+ [6,]    6   16   26   36   46   56   66   76   86    96
+ [7,]    7   17   27   37   47   57   67   77   87    97
+ [8,]    8   18   28   38   48   58   68   78   88    98
+ [9,]    9   19   29   39   49   59   69   79   89    99
+[10,]   10   20   30   40   50   60   70   80   90   100
+> ?which.max
+starting httpd help server ... done
+> x <- matrix(runif(100),10,10)
+> dimnames(x)[[1]] <- letters[1:10]
+> row.mean <- apply(x, 1, mean) #means of each row
+> col.mean <- apply(x, 2, mean) #means of each column
+> row.mean
+        a         b         c         d         e         f         g         h         i         j 
+0.6126513 0.4720094 0.3982839 0.6797781 0.4953888 0.3858895 0.4261705 0.4954515 0.4074930 0.3389052 
+> col.mean
+ [1] 0.3749390 0.5356493 0.5372737 0.5155214 0.5986758 0.4380543 0.3173092 0.4557438 0.4660464 0.4728082
+> which.max(row.mean)
+d 
+4 
+> which.max(col.mean)
+[1] 5
+> x <- matrix(1:100,10,10)
+> dimnames(x)[[1]] <- letters[1:10]
+> row.mean <- apply(x, 1, mean) #means of each row
+> col.mean <- apply(x, 2, mean) #means of each column
+> row.mean
+ a  b  c  d  e  f  g  h  i  j 
+46 47 48 49 50 51 52 53 54 55 
+> col.mean
+ [1]  5.5 15.5 25.5 35.5 45.5 55.5 65.5 75.5 85.5 95.5
+> which.max(row.mean)
+ j 
+10 
+> which.max(col.mean)
+[1] 10
+> x
+  [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10]
+a    1   11   21   31   41   51   61   71   81    91
+b    2   12   22   32   42   52   62   72   82    92
+c    3   13   23   33   43   53   63   73   83    93
+d    4   14   24   34   44   54   64   74   84    94
+e    5   15   25   35   45   55   65   75   85    95
+f    6   16   26   36   46   56   66   76   86    96
+g    7   17   27   37   47   57   67   77   87    97
+h    8   18   28   38   48   58   68   78   88    98
+i    9   19   29   39   49   59   69   79   89    99
+j   10   20   30   40   50   60   70   80   90   100
+> x <- c(1:4,0:5,11)
+> which.min(x)
+[1] 5
+> which.max(x)
+[1] 11
+> x
+ [1]  1  2  3  4  0  1  2  3  4  5 11
+> x <- matrix(1:100,10,10)
+> dimnames(x)[[1]] <- letters[1:10]
+> row.mean <- apply(x, 1, mean) #means of each row
+> col.mean <- apply(x, 2, mean) #means of each column
+> row.mean
+ a  b  c  d  e  f  g  h  i  j 
+46 47 48 49 50 51 52 53 54 55 
+> col.mean
+ [1]  5.5 15.5 25.5 35.5 45.5 55.5 65.5 75.5 85.5 95.5
+> ind.r <- which.max(row.mean)
+> ind.c <- which.max(col.mean)
+> which.max(row.mean)
+ j 
+10 
+> which.max(col.mean)
+[1] 10
+> row.mean[row.mean]
+<NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> 
+  NA   NA   NA   NA   NA   NA   NA   NA   NA   NA 
+> row.mean[ind.r]
+ j 
+55 
+> col.mean[ind.c]
+[1] 95.5
+> x <- matrix(runif(100,1,5),10,10)
+> dimnames(x)[[1]] <- letters[1:10]
+> x
+      [,1]     [,2]     [,3]     [,4]     [,5]     [,6]     [,7]     [,8]     [,9]    [,10]
+a 3.456875 3.667971 4.665280 2.590323 1.769093 3.415197 4.233231 4.251231 2.178628 4.332537
+b 4.445189 1.272266 2.150391 4.361652 2.455533 3.093953 3.010810 3.584002 1.500497 1.263015
+c 1.275760 3.519185 2.865535 1.347591 2.721930 2.468384 2.350911 2.545731 3.781396 4.435532
+d 1.047710 2.530491 2.154292 3.656570 1.126970 2.779249 4.785033 1.691196 3.607351 1.694881
+e 4.393733 1.912042 3.067936 2.546431 3.365539 2.856622 3.024070 3.028593 2.296914 2.806495
+f 1.387576 2.089660 3.832875 2.249694 4.991476 4.292848 4.148437 4.883153 4.099239 1.211773
+g 3.762545 1.431618 1.623732 3.851349 3.004100 3.826150 4.044300 4.074039 3.795711 2.722785
+h 3.985194 2.546463 4.609714 4.718167 2.559914 4.889593 3.632046 4.760717 1.799496 4.752457
+i 1.015724 4.556397 3.539856 2.595495 3.809940 1.480516 3.226538 1.078039 2.580499 3.466918
+j 3.673082 3.552008 1.284912 3.975986 4.140951 2.205958 1.555588 4.964758 3.617199 1.550890
+> row.mean <- apply(x, 1, mean) #means of each row
+> col.mean <- apply(x, 2, mean) #means of each column
+> row.mean
+       a        b        c        d        e        f        g        h        i        j 
+3.456037 2.713731 2.731195 2.507374 2.929838 3.318673 3.213633 3.825376 2.734992 3.052133 
+> col.mean
+ [1] 2.844339 2.707810 2.979452 3.189326 2.994545 3.130847 3.401096 3.486146 2.925693 2.823728
+> ind.r <- which.max(row.mean)
+> ind.c <- which.max(col.mean)
+> which.max(row.mean)
+h 
+8 
+> which.max(col.mean)
+[1] 8
+> row.mean[ind.r]
+       h 
+3.825376 
+> col.mean[ind.c]
+[1] 3.486146
+> apply(x,2,max)
+ [1] 4.445189 4.556397 4.665280 4.718167 4.991476 4.889593 4.785033 4.964758 4.099239 4.752457
+> x <- matrix(runif(100,1,3),10,10)
+> dimnames(x)[[1]] <- letters[1:10]
+> x
+      [,1]     [,2]     [,3]     [,4]     [,5]     [,6]     [,7]     [,8]     [,9]    [,10]
+a 1.732208 2.495376 1.256236 1.418798 1.807365 1.314696 1.975627 2.186629 2.243634 2.785351
+b 1.244889 1.883425 2.632647 2.771106 1.146459 2.590861 2.900322 1.934823 1.746282 1.108422
+c 2.517261 1.604309 1.056735 1.571263 2.594524 2.380528 2.242399 2.539172 2.093084 1.152527
+d 2.634305 2.975732 1.895926 2.253814 2.129374 1.825304 2.964877 1.049118 1.671670 1.510444
+e 2.962285 2.999856 2.846202 1.112775 2.332543 1.861211 2.998892 1.990143 2.361797 2.917214
+f 2.074267 1.864135 1.219738 2.788908 1.201081 2.124600 1.727701 1.776044 2.539876 1.603491
+g 1.566369 1.396923 1.746356 2.365048 2.075771 1.056785 2.925400 1.995311 2.235974 1.656674
+h 2.539947 2.412728 1.451633 1.327361 2.981043 2.853680 1.352708 2.490159 1.586131 1.209901
+i 1.080784 1.638226 2.305021 2.090639 1.772522 2.971701 2.594561 1.811756 2.689378 2.816362
+j 2.999696 1.756832 2.571834 1.200803 1.768902 1.166390 1.991402 2.624580 2.499379 1.050698
+> row.mean <- apply(x, 1, mean) #means of each row
+> col.mean <- apply(x, 2, mean) #means of each column
+> row.mean
+       a        b        c        d        e        f        g        h        i        j 
+1.921592 1.995924 1.975180 2.091056 2.438292 1.891984 1.902061 2.020529 2.177095 1.963051 
+> col.mean
+ [1] 2.135201 2.102754 1.898233 1.890051 1.980959 2.014576 2.367389 2.039774 2.166721 1.781108
+> ind.r <- which.max(row.mean) #show the index of the maximum among the means of each row
+> ind.c <- which.max(col.mean) #show the index of the maximum among the means of each column
+> which.max(row.mean)
+e 
+5 
+> which.max(col.mean)
+[1] 7
+> row.mean[ind.r] #show the value of the maximum among the means of each row
+       e 
+2.438292 
+> col.mean[ind.c] #show the value of the maximum among the means of each column
+[1] 2.367389
+> col.max <- apply(x,2,max)
+> col.max
+ [1] 2.999696 2.999856 2.846202 2.788908 2.981043 2.971701 2.998892 2.624580 2.689378 2.917214
+> x <- matrix(runif(100,1,2.2),10,10)
+> dimnames(x)[[1]] <- letters[1:10]
+> x
+      [,1]     [,2]     [,3]     [,4]     [,5]     [,6]     [,7]     [,8]     [,9]    [,10]
+a 1.189726 1.204435 2.157433 1.210562 1.506889 1.752467 1.391502 1.827584 1.974321 1.509308
+b 1.514736 2.168716 2.143299 1.064024 1.710108 1.600819 1.603869 1.932263 1.207584 2.075913
+c 1.475852 1.115081 1.939595 1.714880 1.222455 1.806578 1.768825 1.212607 1.478511 2.083330
+d 1.130161 1.989286 1.884593 1.902076 1.246145 1.736896 1.499178 1.836082 1.970205 1.098375
+e 1.709492 1.141382 1.832344 2.042364 2.106164 2.146404 1.770625 1.246334 1.540733 1.383996
+f 1.059420 1.571321 1.156866 1.633272 1.742137 1.580832 1.421116 1.501910 1.164853 1.075782
+g 2.069860 1.920987 1.195312 1.855709 2.137796 1.430581 2.169030 1.151318 1.848609 1.242837
+h 1.961665 1.949372 1.223531 2.189131 1.295560 1.984138 2.061009 2.154248 1.829814 1.536035
+i 1.158974 1.953096 1.281904 1.011176 1.411145 1.720265 1.461126 1.117049 1.436511 1.500722
+j 2.065458 2.117328 1.918023 1.225587 1.894954 1.291245 1.819929 1.092224 1.000637 1.527010
+> row.mean <- apply(x, 1, mean) #means of each row
+> col.mean <- apply(x, 2, mean) #means of each column
+> row.mean
+       a        b        c        d        e        f        g        h        i        j 
+1.572423 1.702133 1.581772 1.629300 1.691984 1.390751 1.702204 1.818450 1.405197 1.595239 
+> col.mean
+ [1] 1.533535 1.713100 1.673290 1.584878 1.627335 1.705023 1.696621 1.507162 1.545178 1.503331
+> ind.r <- which.max(row.mean) #show the index of the maximum among the means of each row
+> ind.c <- which.max(col.mean) #show the index of the maximum among the means of each column
+> which.max(row.mean)
+h 
+8 
+> which.max(col.mean)
+[1] 2
+> row.mean[ind.r] #show the value of the maximum among the means of each row
+      h 
+1.81845 
+> col.mean[ind.c] #show the value of the maximum among the means of each column
+[1] 1.7131
+> col.max <- apply(x,2,max)
+> col.max
+ [1] 2.069860 2.168716 2.157433 2.189131 2.137796 2.146404 2.169030 2.154248 1.974321 2.083330
+> if(col.max > 2){sum(col.max)}
+[1] 21.25027
+Warning message:
+In if (col.max > 2) { :
+  the condition has length > 1 and only the first element will be used
+> prime <- function(x){
++ if(x < 0){
++ cat(x "is negtive!")
+Error: unexpected string constant in:
+"if(x < 0){
+cat(x "is negtive!""
+> }
+Error: unexpected '}' in "}"
+> else if(x %in% 0:1){
+Error: unexpected 'else' in "else"
+> cat("x")
+x> }
+Error: unexpected '}' in "}"
+> else if(x %% 2 == 0){
+Error: unexpected 'else' in "else"
+> cat(x "is not a prime!")
+Error: unexpected string constant in "cat(x "is not a prime!""
+> }
+Error: unexpected '}' in "}"
+> else{
+Error: unexpected 'else' in "else"
+> r <- x %% n
+Error: object 'n' not found
+> n <- 2
+> while(r != 0){
++ n <- n+1
++ }
+Error: object 'r' not found
+> if(n < x){
++ cat(x "is not a prime!")
+Error: unexpected string constant in:
+"if(n < x){
+cat(x "is not a prime!""
+> }
+Error: unexpected '}' in "}"
+> else{
+Error: unexpected 'else' in "else"
+> cat(x "is a prime!!!")
+Error: unexpected string constant in "cat(x "is a prime!!!""
+> }
+Error: unexpected '}' in "}"
+> }
+Error: unexpected '}' in "}"
+> 
+
+
+> }> > prime <- function(x){
++ if(x < 0){
++ cat(x "is negtive!")
+Error: unexpected string constant in:
+"if(x < 0){
+cat(x "is negtive!""
+> }
+Error: unexpected '}' in "}"
+> else if(x %in% 0:1){
+Error: unexpected 'else' in "else"
+> cat("x")
+x> }
+Error: unexpected '}' in "}"
+> else if(x %% 2 == 0){
+Error: unexpected 'else' in "else"
+> cat(x "is not a prime!")
+Error: unexpected string constant in "cat(x "is not a prime!""
+> }
+Error: unexpected '}' in "}"
+> else{
+Error: unexpected 'else' in "else"
+> r <- x %% n
+> n <- 2
+> while(r != 0){
++ n <- n+1
++ }
+Error in while (r != 0) { : argument is of length zero
+In addition: There were 50 or more warnings (use warnings() to see the first 50)
+> if(n < x){
++ cat(x "is not a prime!")
+Error: unexpected string constant in:
+"if(n < x){
+cat(x "is not a prime!""
+> }
+Error: unexpected '}' in "}"
+> else{
+Error: unexpected 'else' in "else"
+> cat(x "is a prime!!!")
+Error: unexpected string constant in "cat(x "is a prime!!!""
+> }
+Error: unexpected '}' in "}"
+> }
+Error: unexpected '}' in "}"
+> 
+
+> }> 
+> On <- function(x){
++ S <- sample(100,30,replace=FALSE)
++ for(x in 1:100){
++ if(x %in% S){
++ cat("#")
++ }
++ cat("-")
++ }
++ }
+> matrix(On,10,10)
+Error in as.vector(x, mode) : 
+  cannot coerce type 'closure' to vector of type 'any'
+> On <- function(x){
++ S <- sample(100,30,replace=FALSE)
++ for(x in 1:100){
++ if(x %in% S){
++ cat("#")
++ }
++ cat("-")
++ }
++ }
+> 
+> On
+function(x){
+S <- sample(100,30,replace=FALSE)
+for(x in 1:100){
+if(x %in% S){
+cat("#")
+}
+cat("-")
+}
+}
+> x <- matrix(runif(100,1,2.1),10,10)
+> dimnames(x)[[1]] <- letters[1:10]
+> x
+      [,1]     [,2]     [,3]     [,4]     [,5]     [,6]     [,7]     [,8]     [,9]    [,10]
+a 1.781701 1.420258 2.046657 1.475374 1.115926 1.127427 1.869758 1.705404 1.973521 1.633737
+b 1.694555 1.257815 1.281763 1.934436 1.407148 1.067846 1.095875 2.080804 1.741828 1.368744
+c 1.626627 1.106511 1.036185 2.074410 2.077757 1.102627 1.946021 1.986048 1.120771 1.105396
+d 1.295916 1.255473 1.848913 1.650622 1.168201 1.873334 1.131404 1.346169 1.910790 1.372225
+e 1.419917 1.863787 1.667286 2.085818 1.571594 1.743575 1.202479 1.710915 1.448280 1.720634
+f 2.031211 1.237447 1.080273 1.548955 1.101237 1.117200 1.448257 1.759675 1.004418 1.415338
+g 1.291253 1.214104 1.395448 1.912112 1.454192 1.145448 1.383623 1.941879 1.911891 1.236378
+h 1.210258 1.687361 1.854666 2.014942 1.181380 1.368045 1.205558 2.055032 1.561643 1.116688
+i 1.715968 1.967342 1.032435 1.709119 1.642646 1.161253 2.091467 1.700711 1.301700 1.138053
+j 1.032446 1.390271 1.889635 1.202583 1.870784 1.870962 1.473611 1.821483 1.806946 1.100296
+> row.mean <- apply(x, 1, mean) #means of each row
+> col.mean <- apply(x, 2, mean) #means of each column
+> row.mean
+       a        b        c        d        e        f        g        h        i        j 
+1.614976 1.493082 1.518235 1.485305 1.643428 1.374401 1.488633 1.525557 1.546069 1.545902 
+> col.mean
+ [1] 1.509985 1.440037 1.513326 1.760837 1.459087 1.357772 1.484805 1.810812 1.578179 1.320749
+> ind.r <- which.max(row.mean) #show the index of the maximum among the means of each row
+> ind.c <- which.max(col.mean) #show the index of the maximum among the means of each column
+> which.max(row.mean)
+e 
+5 
+> which.max(col.mean)
+[1] 8
+> row.mean[ind.r] #show the value of the maximum among the means of each row
+       e 
+1.643428 
+> col.mean[ind.c] #show the value of the maximum among the means of each column
+[1] 1.810812
+> col.max <- apply(x,2,max>2)
+Error in max > 2 : 
+  comparison (6) is possible only for atomic and list types
+> col.max
+ [1] 2.069860 2.168716 2.157433 2.189131 2.137796 2.146404 2.169030 2.154248 1.974321 2.083330
+> 
+> x <- matrix(runif(100,1,2.1),10,10)
+> dimnames(x)[[1]] <- letters[1:10]
+> x
+      [,1]     [,2]     [,3]     [,4]     [,5]     [,6]     [,7]     [,8]     [,9]    [,10]
+a 1.685018 2.051340 1.563750 1.753590 1.185488 1.178348 1.883601 1.231757 1.451269 1.903063
+b 1.710525 1.760384 1.131768 1.125048 1.360517 1.272893 1.356038 1.847769 1.380748 1.179412
+c 1.624847 1.955367 1.146690 1.369798 1.601113 1.862959 1.200238 1.141326 1.304111 1.271191
+d 1.899038 1.201565 1.092239 1.406708 1.850607 1.803722 2.086015 1.800275 1.075150 1.206593
+e 1.261958 1.842418 2.043811 1.613756 2.009313 2.063922 1.490632 1.209143 1.515370 2.027475
+f 1.730958 1.354392 1.116294 1.920586 1.653330 1.251175 1.560615 1.252463 1.788344 1.651668
+g 1.425211 1.900312 1.522231 2.025846 1.652936 1.778541 1.525995 1.563918 1.122774 1.290533
+h 1.508680 1.626802 1.836337 1.909537 1.741739 1.736886 1.710437 1.945282 1.474453 1.600672
+i 1.334963 1.019748 1.577629 1.480781 1.131327 1.200131 1.155893 1.558215 1.556516 1.815884
+j 1.177763 1.868464 1.272794 1.551198 1.345049 1.585175 1.204164 1.189316 1.379792 1.277381
+> row.mean <- apply(x, 1, mean) #means of each row
+> col.mean <- apply(x, 2, mean) #means of each column
+> row.mean
+       a        b        c        d        e        f        g        h        i        j 
+1.588722 1.412510 1.447764 1.542191 1.707780 1.527982 1.580830 1.709082 1.383109 1.385110 
+> col.mean
+ [1] 1.535896 1.658079 1.430354 1.615685 1.553142 1.573375 1.517363 1.473946 1.404853 1.522387
+> ind.r <- which.max(row.mean) #show the index of the maximum among the means of each row
+> ind.c <- which.max(col.mean) #show the index of the maximum among the means of each column
+> which.max(row.mean)
+h 
+8 
+> which.max(col.mean)
+[1] 2
+> row.mean[ind.r] #show the value of the maximum among the means of each row
+       h 
+1.709082 
+> col.mean[ind.c] #show the value of the maximum among the means of each column
+[1] 1.658079
+> col.max <- apply(x,2,max)
+> col.max
+ [1] 1.899038 2.051340 2.043811 2.025846 2.009313 2.063922 2.086015 1.945282 1.788344 2.027475
+> col.max>2
+ [1] FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE FALSE  TRUE
+> x
+      [,1]     [,2]     [,3]     [,4]     [,5]     [,6]     [,7]     [,8]     [,9]    [,10]
+a 1.685018 2.051340 1.563750 1.753590 1.185488 1.178348 1.883601 1.231757 1.451269 1.903063
+b 1.710525 1.760384 1.131768 1.125048 1.360517 1.272893 1.356038 1.847769 1.380748 1.179412
+c 1.624847 1.955367 1.146690 1.369798 1.601113 1.862959 1.200238 1.141326 1.304111 1.271191
+d 1.899038 1.201565 1.092239 1.406708 1.850607 1.803722 2.086015 1.800275 1.075150 1.206593
+e 1.261958 1.842418 2.043811 1.613756 2.009313 2.063922 1.490632 1.209143 1.515370 2.027475
+f 1.730958 1.354392 1.116294 1.920586 1.653330 1.251175 1.560615 1.252463 1.788344 1.651668
+g 1.425211 1.900312 1.522231 2.025846 1.652936 1.778541 1.525995 1.563918 1.122774 1.290533
+h 1.508680 1.626802 1.836337 1.909537 1.741739 1.736886 1.710437 1.945282 1.474453 1.600672
+i 1.334963 1.019748 1.577629 1.480781 1.131327 1.200131 1.155893 1.558215 1.556516 1.815884
+j 1.177763 1.868464 1.272794 1.551198 1.345049 1.585175 1.204164 1.189316 1.379792 1.277381
+> ncol(x)
+[1] 10
+> column <- 1
+> x[,column]
+       a        b        c        d        e        f        g        h        i        j 
+1.685018 1.710525 1.624847 1.899038 1.261958 1.730958 1.425211 1.508680 1.334963 1.177763 
+> mean(x[,column])
+[1] 1.535896
+> x[column,]
+ [1] 1.685018 2.051340 1.563750 1.753590 1.185488 1.178348 1.883601 1.231757 1.451269 1.903063
+> x[1:2,2:3]
+      [,1]     [,2]
+a 2.051340 1.563750
+b 1.760384 1.131768
+> r <- c("A","B","C")
+> r[1]
+[1] "A"
+> r[2]
+[1] "B"
+> for(column in 1:ncol(x)){
++ cat(column,"=",mean(x[,column]),"\n")
++ }
+1 = 1.535896 
+2 = 1.658079 
+3 = 1.430354 
+4 = 1.615685 
+5 = 1.553142 
+6 = 1.573375 
+7 = 1.517363 
+8 = 1.473946 
+9 = 1.404853 
+10 = 1.522387 
+> prime <- function(x){
++ if(x < 0){
++ cat(x "is negtive")
+Error: unexpected string constant in:
+"if(x < 0){
+cat(x "is negtive""
+> }
+Error: unexpected '}' in "}"
+> else if(x %in% 0:1){
+Error: unexpected 'else' in "else"
+> cat(x)
+1.685018 1.710525 1.624847 1.899038 1.261958 1.730958 1.425211 1.50868 1.334963 1.177763 2.05134 1.760384 1.955367 1.201565 1.842418 1.354392 1.900312 1.626802 1.019748 1.868464 1.56375 1.131768 1.14669 1.092239 2.043811 1.116294 1.522231 1.836337 1.577629 1.272794 1.75359 1.125048 1.369798 1.406708 1.613756 1.920586 2.025846 1.909537 1.480781 1.551198 1.185488 1.360517 1.601113 1.850607 2.009313 1.65333 1.652936 1.741739 1.131327 1.345049 1.178348 1.272893 1.862959 1.803722 2.063922 1.251175 1.778541 1.736886 1.200131 1.585175 1.883601 1.356038 1.200238 2.086015 1.490632 1.560615 1.525995 1.710437 1.155893 1.204164 1.231757 1.847769 1.141326 1.800275 1.209143 1.252463 1.563918 1.945282 1.558215 1.189316 1.451269 1.380748 1.304111 1.07515 1.51537 1.788344 1.122774 1.474453 1.556516 1.379792 1.903063 1.179412 1.271191 1.206593 2.027475 1.651668 1.290533 1.600672 1.815884 1.277381> }
+Error: unexpected '}' in "}"
+> else if(x %% 2 == 0){
+Error: unexpected 'else' in "else"
+> cat(x "is not a prime")
+Error: unexpected string constant in "cat(x "is not a prime""
+> }
+Error: unexpected '}' in "}"
+> else{
+Error: unexpected 'else' in "else"
+> r <- x %% n
+> n <- 2
+> while(r != 0){
++ n <- n+1
++ }
+Error in while (r != 0) { : argument is of length zero
+In addition: There were 50 or more warnings (use warnings() to see the first 50)
+> if(n < x){
++ cat(x "is not a prime")
+Error: unexpected string constant in:
+"if(n < x){
+cat(x "is not a prime""
+> }
+Error: unexpected '}' in "}"
+> else{
+Error: unexpected 'else' in "else"
+> cat(x "is a prime!")
+Error: unexpected string constant in "cat(x "is a prime!""
+> }
+Error: unexpected '}' in "}"
+> }
+Error: unexpected '}' in "}"
+> 
+> }#Q3.4
+Error: unexpected '}' in "}"
+> prime <- function(x){
++ if(x < 0){
++ cat(x,"is negtive")
++ }
++ else if(x %in% 0:1){
++ cat(x)
++ }
++ else if(x %% 2 == 0){
++ cat(x "is not a prime")
+Error: unexpected string constant in:
+"else if(x %% 2 == 0){
+cat(x "is not a prime""
+> }
+Error: unexpected '}' in "}"
+> else{
+Error: unexpected 'else' in "else"
+> r <- x %% n
+> n <- 2
+> while(r != 0){
++ n <- n+1
++ }
+Error in while (r != 0) { : argument is of length zero
+In addition: There were 50 or more warnings (use warnings() to see the first 50)
+> if(n < x){
++ cat(x "is not a prime")
+Error: unexpected string constant in:
+"if(n < x){
+cat(x "is not a prime""
+> }
+Error: unexpected '}' in "}"
+> else{
+Error: unexpected 'else' in "else"
+> cat(x "is a prime!")
+Error: unexpected string constant in "cat(x "is a prime!""
+> }
+Error: unexpected '}' in "}"
+> }
+Error: unexpected '}' in "}"
+> 
+> }
+Error: unexpected '}' in "}"
+> 
+> 
+> cat("A" "B")
+Error: unexpected string constant in "cat("A" "B""
+> cat("A","B")
+A B> prime <- function(x){
++ if(x < 0){
++ cat(x,"is negtive")
++ }
++ else if(x %in% 0:1){
++ cat(x)
++ }
++ else if(x %% 2 == 0){
++ cat(x,"is not a prime")
++ }
++ else{
++ r <- x %% n
++ n <- 2
++ while(r != 0){
++ n <- n+1
++ }
++ if(n < x){
++ cat(x,"is not a prime")
++ }
++ else{
++ cat(x,"is a prime!")
++ }
++ }
++ 
++ }
+> 
+> prime(0)
+0> prime(1)
+1> prime(2)
+2 is not a prime> #Q3.4
+> prime <- function(x){
++ if(x < 0){
++ cat(x,"is negtive")
++ }
++ else if(x %in% 0:1){
++ cat(x)
++ }
++ else if(x > 2 && x %% 2 == 0){
++ cat(x,"is not a prime")
++ }
++ else{
++ r <- x %% n
++ n <- 2
++ while(r != 0){
++ n <- n+1
++ }
++ if(n < x){
++ cat(x,"is not a prime")
++ }
++ else{
++ cat(x,"is a prime!")
++ }
++ }
++ 
++ }
+> prime(2)
+
+> #Q3.4
+> prime <- function(x){
++ if(x < 0){
++ cat(x,"is negtive")
++ }
++ else if(x %in% 0:1){
++ cat(x)
++ }
++ else if(x > 2 && x %% 2 == 0){
++ cat(x,"is not a prime")
++ }else{
++ r <- x %% n
++ n <- 2
++ while(r != 0 && n < x){
++ n <- n+1
++ r <- x %% n
++ }
++ if(n < x){
++ cat(x,"is not a prime")
++ }
++ else{
++ cat(x,"is a prime!")
++ }
++ }
++ }
+> 
+> prime(2)
+2 is a prime!> prime(3)
+3 is a prime!> prime(4)
+4 is not a prime> prime(5)
+5 is a prime!> prime(6)
+6 is not a prime> prime(7)
+7 is a prime!> prime(8)
+8 is not a prime> prime(9)
+9 is not a prime> a <- prime(9)
+9 is not a prime> a
+NULL
+> for(x in 1:1000){prime(x)}
+12 is a prime!3 is a prime!4 is not a prime5 is a prime!6 is not a prime7 is a prime!8 is not a prime9 is not a prime10 is not a prime11 is a prime!12 is not a prime13 is a prime!14 is not a prime15 is not a prime16 is not a prime17 is a prime!18 is not a prime19 is a prime!20 is not a prime21 is not a prime22 is not a prime23 is a prime!24 is not a prime25 is not a prime26 is not a prime27 is not a prime28 is not a prime29 is a prime!30 is not a prime31 is a prime!32 is not a prime33 is not a prime34 is not a prime35 is not a prime36 is not a prime37 is a prime!38 is not a prime39 is not a prime40 is not a prime41 is a prime!42 is not a prime43 is a prime!44 is not a prime45 is not a prime46 is not a prime47 is a prime!48 is not a prime49 is not a prime50 is not a prime51 is not a prime52 is not a prime53 is a prime!54 is not a prime55 is not a prime56 is not a prime57 is not a prime58 is not a prime59 is a prime!60 is not a prime61 is a prime!62 is not a prime63 is not a prime64 is not a prime65 is not a prime66 is not a prime67 is a prime!68 is not a prime69 is not a prime70 is not a prime71 is a prime!72 is not a prime73 is a prime!74 is not a prime75 is not a prime76 is not a prime77 is not a prime78 is not a prime79 is a prime!80 is not a prime81 is not a prime82 is not a prime83 is a prime!84 is not a prime85 is not a prime86 is not a prime87 is not a prime88 is not a prime89 is a prime!90 is not a prime91 is not a prime92 is not a prime93 is not a prime94 is not a prime95 is not a prime96 is not a prime97 is a prime!98 is not a prime99 is not a prime100 is not a prime101 is a prime!102 is not a prime103 is a prime!104 is not a prime105 is not a prime106 is not a prime107 is a prime!108 is not a prime109 is a prime!110 is not a prime111 is not a prime112 is not a prime113 is a prime!114 is not a prime115 is not a prime116 is not a prime117 is not a prime118 is not a prime119 is not a prime120 is not a prime121 is not a prime122 is not a prime123 is not a prime124 is not a prime125 is not a prime126 is not a prime127 is a prime!128 is not a prime129 is not a prime130 is not a prime131 is a prime!132 is not a prime133 is not a prime134 is not a prime135 is not a prime136 is not a prime137 is a prime!138 is not a prime139 is a prime!140 is not a prime141 is not a prime142 is not a prime143 is not a prime144 is not a prime145 is not a prime146 is not a prime147 is not a prime148 is not a prime149 is a prime!150 is not a prime151 is a prime!152 is not a prime153 is not a prime154 is not a prime155 is not a prime156 is not a prime157 is a prime!158 is not a prime159 is not a prime160 is not a prime161 is not a prime162 is not a prime163 is a prime!164 is not a prime165 is not a prime166 is not a prime167 is a prime!168 is not a prime169 is not a prime170 is not a prime171 is not a prime172 is not a prime173 is a prime!174 is not a prime175 is not a prime176 is not a prime177 is not a prime178 is not a prime179 is a prime!180 is not a prime181 is a prime!182 is not a prime183 is not a prime184 is not a prime185 is not a prime186 is not a prime187 is not a prime188 is not a prime189 is not a prime190 is not a prime191 is a prime!192 is not a prime193 is a prime!194 is not a prime195 is not a prime196 is not a prime197 is a prime!198 is not a prime199 is a prime!200 is not a prime201 is not a prime202 is not a prime203 is not a prime204 is not a prime205 is not a prime206 is not a prime207 is not a prime208 is not a prime209 is not a prime210 is not a prime211 is a prime!212 is not a prime213 is not a prime214 is not a prime215 is not a prime216 is not a prime217 is not a prime218 is not a prime219 is not a prime220 is not a prime221 is not a prime222 is not a prime223 is a prime!224 is not a prime225 is not a prime226 is not a prime227 is a prime!228 is not a prime229 is a prime!230 is not a prime231 is not a prime232 is not a prime233 is a prime!234 is not a prime235 is not a prime236 is not a prime237 is not a prime238 is not a prime239 is a prime!240 is not a prime241 is a prime!242 is not a prime243 is not a prime244 is not a prime245 is not a prime246 is not a prime247 is not a prime248 is not a prime249 is not a prime250 is not a prime251 is a prime!252 is not a prime253 is not a prime254 is not a prime255 is not a prime256 is not a prime257 is a prime!258 is not a prime259 is not a prime260 is not a prime261 is not a prime262 is not a prime263 is a prime!264 is not a prime265 is not a prime266 is not a prime267 is not a prime268 is not a prime269 is a prime!270 is not a prime271 is a prime!272 is not a prime273 is not a prime274 is not a prime275 is not a prime276 is not a prime277 is a prime!278 is not a prime279 is not a prime280 is not a prime281 is a prime!282 is not a prime283 is a prime!284 is not a prime285 is not a prime286 is not a prime287 is not a prime288 is not a prime289 is not a prime290 is not a prime291 is not a prime292 is not a prime293 is a prime!294 is not a prime295 is not a prime296 is not a prime297 is not a prime298 is not a prime299 is not a prime300 is not a prime301 is not a prime302 is not a prime303 is not a prime304 is not a prime305 is not a prime306 is not a prime307 is a prime!308 is not a prime309 is not a prime310 is not a prime311 is a prime!312 is not a prime313 is a prime!314 is not a prime315 is not a prime316 is not a prime317 is a prime!318 is not a prime319 is not a prime320 is not a prime321 is not a prime322 is not a prime323 is not a prime324 is not a prime325 is not a prime326 is not a prime327 is not a prime328 is not a prime329 is not a prime330 is not a prime331 is a prime!332 is not a prime333 is not a prime334 is not a prime335 is not a prime336 is not a prime337 is a prime!338 is not a prime339 is not a prime340 is not a prime341 is not a prime342 is not a prime343 is not a prime344 is not a prime345 is not a prime346 is not a prime347 is a prime!348 is not a prime349 is a prime!350 is not a prime351 is not a prime352 is not a prime353 is a prime!354 is not a prime355 is not a prime356 is not a prime357 is not a prime358 is not a prime359 is a prime!360 is not a prime361 is not a prime362 is not a prime363 is not a prime364 is not a prime365 is not a prime366 is not a prime367 is a prime!368 is not a prime369 is not a prime370 is not a prime371 is not a prime372 is not a prime373 is a prime!374 is not a prime375 is not a prime376 is not a prime377 is not a prime378 is not a prime379 is a prime!380 is not a prime381 is not a prime382 is not a prime383 is a prime!384 is not a prime385 is not a prime386 is not a prime387 is not a prime388 is not a prime389 is a prime!390 is not a prime391 is not a prime392 is not a prime393 is not a prime394 is not a prime395 is not a prime396 is not a prime397 is a prime!398 is not a prime399 is not a prime400 is not a prime401 is a prime!402 is not a prime403 is not a prime404 is not a prime405 is not a prime406 is not a prime407 is not a prime408 is not a prime409 is a prime!410 is not a prime411 is not a prime412 is not a prime413 is not a prime414 is not a prime415 is not a prime416 is not a prime417 is not a prime418 is not a prime419 is a prime!420 is not a prime421 is a prime!422 is not a prime423 is not a prime424 is not a prime425 is not a prime426 is not a prime427 is not a prime428 is not a prime429 is not a prime430 is not a prime431 is a prime!432 is not a prime433 is a prime!434 is not a prime435 is not a prime436 is not a prime437 is not a prime438 is not a prime439 is a prime!440 is not a prime441 is not a prime442 is not a prime443 is a prime!444 is not a prime445 is not a prime446 is not a prime447 is not a prime448 is not a prime449 is a prime!450 is not a prime451 is not a prime452 is not a prime453 is not a prime454 is not a prime455 is not a prime456 is not a prime457 is a prime!458 is not a prime459 is not a prime460 is not a prime461 is a prime!462 is not a prime463 is a prime!464 is not a prime465 is not a prime466 is not a prime467 is a prime!468 is not a prime469 is not a prime470 is not a prime471 is not a prime472 is not a prime473 is not a prime474 is not a prime475 is not a prime476 is not a prime477 is not a prime478 is not a prime479 is a prime!480 is not a prime481 is not a prime482 is not a prime483 is not a prime484 is not a prime485 is not a prime486 is not a prime487 is a prime!488 is not a prime489 is not a prime490 is not a prime491 is a prime!492 is not a prime493 is not a prime494 is not a prime495 is not a prime496 is not a prime497 is not a prime498 is not a prime499 is a prime!500 is not a prime501 is not a prime502 is not a prime503 is a prime!504 is not a prime505 is not a prime506 is not a prime507 is not a prime508 is not a prime509 is a prime!510 is not a prime511 is not a prime512 is not a prime513 is not a prime514 is not a prime515 is not a prime516 is not a prime517 is not a prime518 is not a prime519 is not a prime520 is not a prime521 is a prime!522 is not a prime523 is a prime!524 is not a prime525 is not a prime526 is not a prime527 is not a prime528 is not a prime529 is not a prime530 is not a prime531 is not a prime532 is not a prime533 is not a prime534 is not a prime535 is not a prime536 is not a prime537 is not a prime538 is not a prime539 is not a prime540 is not a prime541 is a prime!542 is not a prime543 is not a prime544 is not a prime545 is not a prime546 is not a prime547 is a prime!548 is not a prime549 is not a prime550 is not a prime551 is not a prime552 is not a prime553 is not a prime554 is not a prime555 is not a prime556 is not a prime557 is a prime!558 is not a prime559 is not a prime560 is not a prime561 is not a prime562 is not a prime563 is a prime!564 is not a prime565 is not a prime566 is not a prime567 is not a prime568 is not a prime569 is a prime!570 is not a prime571 is a prime!572 is not a prime573 is not a prime574 is not a prime575 is not a prime576 is not a prime577 is a prime!578 is not a prime579 is not a prime580 is not a prime581 is not a prime582 is not a prime583 is not a prime584 is not a prime585 is not a prime586 is not a prime587 is a prime!588 is not a prime589 is not a prime590 is not a prime591 is not a prime592 is not a prime593 is a prime!594 is not a prime595 is not a prime596 is not a prime597 is not a prime598 is not a prime599 is a prime!600 is not a prime601 is a prime!602 is not a prime603 is not a prime604 is not a prime605 is not a prime606 is not a prime607 is a prime!608 is not a prime609 is not a prime610 is not a prime611 is not a prime612 is not a prime613 is a prime!614 is not a prime615 is not a prime616 is not a prime617 is a prime!618 is not a prime619 is a prime!620 is not a prime621 is not a prime622 is not a prime623 is not a prime624 is not a prime625 is not a prime626 is not a prime627 is not a prime628 is not a prime629 is not a prime630 is not a prime631 is a prime!632 is not a prime633 is not a prime634 is not a prime635 is not a prime636 is not a prime637 is not a prime638 is not a prime639 is not a prime640 is not a prime641 is a prime!642 is not a prime643 is a prime!644 is not a prime645 is not a prime646 is not a prime647 is a prime!648 is not a prime649 is not a prime650 is not a prime651 is not a prime652 is not a prime653 is a prime!654 is not a prime655 is not a prime656 is not a prime657 is not a prime658 is not a prime659 is a prime!660 is not a prime661 is a prime!662 is not a prime663 is not a prime664 is not a prime665 is not a prime666 is not a prime667 is not a prime668 is not a prime669 is not a prime670 is not a prime671 is not a prime672 is not a prime673 is a prime!674 is not a prime675 is not a prime676 is not a prime677 is a prime!678 is not a prime679 is not a prime680 is not a prime681 is not a prime682 is not a prime683 is a prime!684 is not a prime685 is not a prime686 is not a prime687 is not a prime688 is not a prime689 is not a prime690 is not a prime691 is a prime!692 is not a prime693 is not a prime694 is not a prime695 is not a prime696 is not a prime697 is not a prime698 is not a prime699 is not a prime700 is not a prime701 is a prime!702 is not a prime703 is not a prime704 is not a prime705 is not a prime706 is not a prime707 is not a prime708 is not a prime709 is a prime!710 is not a prime711 is not a prime712 is not a prime713 is not a prime714 is not a prime715 is not a prime716 is not a prime717 is not a prime718 is not a prime719 is a prime!720 is not a prime721 is not a prime722 is not a prime723 is not a prime724 is not a prime725 is not a prime726 is not a prime727 is a prime!728 is not a prime729 is not a prime730 is not a prime731 is not a prime732 is not a prime733 is a prime!734 is not a prime735 is not a prime736 is not a prime737 is not a prime738 is not a prime739 is a prime!740 is not a prime741 is not a prime742 is not a prime743 is a prime!744 is not a prime745 is not a prime746 is not a prime747 is not a prime748 is not a prime749 is not a prime750 is not a prime751 is a prime!752 is not a prime753 is not a prime754 is not a prime755 is not a prime756 is not a prime757 is a prime!758 is not a prime759 is not a prime760 is not a prime761 is a prime!762 is not a prime763 is not a prime764 is not a prime765 is not a prime766 is not a prime767 is not a prime768 is not a prime769 is a prime!770 is not a prime771 is not a prime772 is not a prime773 is a prime!774 is not a prime775 is not a prime776 is not a prime777 is not a prime778 is not a prime779 is not a prime780 is not a prime781 is not a prime782 is not a prime783 is not a prime784 is not a prime785 is not a prime786 is not a prime787 is a prime!788 is not a prime789 is not a prime790 is not a prime791 is not a prime792 is not a prime793 is not a prime794 is not a prime795 is not a prime796 is not a prime797 is a prime!798 is not a prime799 is not a prime800 is not a prime801 is not a prime802 is not a prime803 is not a prime804 is not a prime805 is not a prime806 is not a prime807 is not a prime808 is not a prime809 is a prime!810 is not a prime811 is a prime!812 is not a prime813 is not a prime814 is not a prime815 is not a prime816 is not a prime817 is not a prime818 is not a prime819 is not a prime820 is not a prime821 is a prime!822 is not a prime823 is a prime!824 is not a prime825 is not a prime826 is not a prime827 is a prime!828 is not a prime829 is a prime!830 is not a prime831 is not a prime832 is not a prime833 is not a prime834 is not a prime835 is not a prime836 is not a prime837 is not a prime838 is not a prime839 is a prime!840 is not a prime841 is not a prime842 is not a prime843 is not a prime844 is not a prime845 is not a prime846 is not a prime847 is not a prime848 is not a prime849 is not a prime850 is not a prime851 is not a prime852 is not a prime853 is a prime!854 is not a prime855 is not a prime856 is not a prime857 is a prime!858 is not a prime859 is a prime!860 is not a prime861 is not a prime862 is not a prime863 is a prime!864 is not a prime865 is not a prime866 is not a prime867 is not a prime868 is not a prime869 is not a prime870 is not a prime871 is not a prime872 is not a prime873 is not a prime874 is not a prime875 is not a prime876 is not a prime877 is a prime!878 is not a prime879 is not a prime880 is not a prime881 is a prime!882 is not a prime883 is a prime!884 is not a prime885 is not a prime886 is not a prime887 is a prime!888 is not a prime889 is not a prime890 is not a prime891 is not a prime892 is not a prime893 is not a prime894 is not a prime895 is not a prime896 is not a prime897 is not a prime898 is not a prime899 is not a prime900 is not a prime901 is not a prime902 is not a prime903 is not a prime904 is not a prime905 is not a prime906 is not a prime907 is a prime!908 is not a prime909 is not a prime910 is not a prime911 is a prime!912 is not a prime913 is not a prime914 is not a prime915 is not a prime916 is not a prime917 is not a prime918 is not a prime919 is a prime!920 is not a prime921 is not a prime922 is not a prime923 is not a prime924 is not a prime925 is not a prime926 is not a prime927 is not a prime928 is not a prime929 is a prime!930 is not a prime931 is not a prime932 is not a prime933 is not a prime934 is not a prime935 is not a prime936 is not a prime937 is a prime!938 is not a prime939 is not a prime940 is not a prime941 is a prime!942 is not a prime943 is not a prime944 is not a prime945 is not a prime946 is not a prime947 is a prime!948 is not a prime949 is not a prime950 is not a prime951 is not a prime952 is not a prime953 is a prime!954 is not a prime955 is not a prime956 is not a prime957 is not a prime958 is not a prime959 is not a prime960 is not a prime961 is not a prime962 is not a prime963 is not a prime964 is not a prime965 is not a prime966 is not a prime967 is a prime!968 is not a prime969 is not a prime970 is not a prime971 is a prime!972 is not a prime973 is not a prime974 is not a prime975 is not a prime976 is not a prime977 is a prime!978 is not a prime979 is not a prime980 is not a prime981 is not a prime982 is not a prime983 is a prime!984 is not a prime985 is not a prime986 is not a prime987 is not a prime988 is not a prime989 is not a prime990 is not a prime991 is a prime!992 is not a prime993 is not a prime994 is not a prime995 is not a prime996 is not a prime997 is a prime!998 is not a prime999 is not a prime1000 is not a prime> 
+> 
+> if(prime(x)){}
+1000 is not a primeError in if (prime(x)) { : argument is of length zero
+> 
+> prime <- function(x){
++ if(x < 0){
++ cat(x,"is negtive")
++ return(FALSE)
++ }
++ else if(x %in% 0:1){
++ cat(x)
++ return(FALSE)
++ }
++ else if(x > 2 && x %% 2 == 0){
++ cat(x,"is not a prime")
++ return(FALSE)
++ }else{
++ r <- x %% n
++ n <- 2
++ while(r != 0 && n < x){
++ n <- n+1
++ r <- x %% n
++ }
++ if(n < x){
++ cat(x,"is not a prime")
++ return(FALSE)
++ }
++ else{
++ cat(x,"is a prime!")
++ return(TRUE)
++ }
++ }
++ }
+> 
+> 
+> prime(20)
+20 is not a prime[1] FALSE
+> a <- prime(20)
+20 is not a prime> a
+[1] FALSE
+> 
+> 
+> 
+> prime <- function(x){
++ if(x < 0){
++ cat(x,"is negtive")
++ invisible(return(FALSE))
++ }
++ else if(x %in% 0:1){
++ cat(x)
++ invisible(return(FALSE))
++ }
++ else if(x > 2 && x %% 2 == 0){
++ cat(x,"is not a prime")
++ invisible(return(FALSE))
++ }else{
++ r <- x %% n
++ n <- 2
++ while(r != 0 && n < x){
++ n <- n+1
++ r <- x %% n
++ }
++ if(n < x){
++ cat(x,"is not a prime")
++ invisible(return(FALSE))
++ }
++ else{
++ cat(x,"is a prime!")
++ invisible(return(TRUE))
++ }
++ }
++ }
+> 
+> prime(20)
+20 is not a prime[1] FALSE
+> prime <- function(x){
++ if(x < 0){
++ cat(x,"is negtive")
++ return(invisible(FALSE))
++ }
++ else if(x %in% 0:1){
++ cat(x)
++ return(invisible(FALSE))
++ }
++ else if(x > 2 && x %% 2 == 0){
++ cat(x,"is not a prime")
++ return(invisible(FALSE))
++ }else{
++ r <- x %% n
++ n <- 2
++ while(r != 0 && n < x){
++ n <- n+1
++ r <- x %% n
++ }
++ if(n < x){
++ cat(x,"is not a prime")
++ return(invisible(FALSE))
++ }
++ else{
++ cat(x,"is a prime!")
++ return(invisible(TRUE))
++ }
++ }
++ }
+> 
+> 
+> prime(20)
+20 is not a prime> a <- prime(20)
+20 is not a prime> a
+[1] FALSE
+> a <- prime(5)
+5 is a prime!> a
+[1] TRUE
+> if(prime(5)){cat("Yeah")}else{cat("Neah")}
+5 is a prime!Yeah> 
+> #Q3.4
+> prime <- function(x, verbose = FALSE){
++ if(x < 0){
++ if(verbose) cat(x,"is negtive")
++ return(invisible(FALSE))
++ }
++ else if(x %in% 0:1){
++ if(verbose) cat(x,"Not prime by definition")
++ return(invisible(FALSE))
++ }
++ else if(x > 2 && x %% 2 == 0){
++ if(verbose) cat(x,"is not a prime")
++ return(invisible(FALSE))
++ }else{
++ r <- x %% n
++ n <- 2
++ while(r != 0 && n < x){
++ n <- n+1
++ r <- x %% n
++ }
++ if(n < x){
++ if(verbose) cat(x,"is not a prime")
++ return(invisible(FALSE))
++ }
++ else{
++ if(verbose) cat(x,"is a prime!")
++ return(invisible(TRUE))
++ }
++ }
++ }
+> 
+> 
+> if(prime(5)){cat("Yeah")}else{cat("Neah")}
+Yeah> if(prime(5,TRUE)){cat("Yeah")}else{cat("Neah")}
+5 is a prime!Yeah> 
+> 
+> prime(5)
+> prime(5, TRUE)
+5 is a prime!> 
+> 
+> res <- ()
+Error: unexpected ')' in "res <- ()"
+> for(x in 1:1000){
++ if(prime(x)){ 
++ res <- c(res,x) 
++ }
++ }
+Error: object 'res' not found
+> res <- NULL
+> for(x in 1:1000){
++ if(prime(x)){ 
++ res <- c(res,x) 
++ }
++ }
+> res
+  [1]   2   3   5   7  11  13  17  19  23  29  31  37  41  43  47  53  59  61  67  71  73  79  83  89  97 101
+ [27] 103 107 109 113 127 131 137 139 149 151 157 163 167 173 179 181 191 193 197 199 211 223 227 229 233 239
+ [53] 241 251 257 263 269 271 277 281 283 293 307 311 313 317 331 337 347 349 353 359 367 373 379 383 389 397
+ [79] 401 409 419 421 431 433 439 443 449 457 461 463 467 479 487 491 499 503 509 521 523 541 547 557 563 569
+[105] 571 577 587 593 599 601 607 613 617 619 631 641 643 647 653 659 661 673 677 683 691 701 709 719 727 733
+[131] 739 743 751 757 761 769 773 787 797 809 811 821 823 827 829 839 853 857 859 863 877 881 883 887 907 911
+[157] 919 929 937 941 947 953 967 971 977 983 991 997
+> length(res)
+[1] 168
+> prime(5.6)
+> prime(5.6,TRUE)
+5.6 is a prime!> ?integer
+> is.integer(1)
+[1] FALSE
+> is.integer(5)
+[1] FALSE
+> is.numeric(5)
+[1] TRUE
+> is.na(as.integer(5))
+[1] FALSE
+> !is.na(as.integer(5))
+[1] TRUE
+> !is.na(as.integer(5.5))
+[1] TRUE
+> as.integer(5.5)
+[1] 5
+> is.wholenumber(5.5)
+Error: could not find function "is.wholenumber"
+> ??wholenumber
+> is.wholenumber <- function(x){return(round(x,d=0)==x)}
+> is.wholenumber(5.5)
+[1] FALSE
+> is.wholenumber(5)
+[1] TRUE
+> round(0.9999,d=2)
+[1] 1
+> round(0.53434324134,d=2)
+[1] 0.53
+> round(0.53434324134,d=4)
+[1] 0.5343
+> round(0.53434324134,d=9)
+[1] 0.5343432
+> round(0.53434324134,d=0)
+[1] 1
+> is.wholenumber(5.1)
+[1] FALSE
+> is.wholenumber(5.0000001)
+[1] FALSE
+> sqrt(-1)
+[1] NaN
+Warning message:
+In sqrt(-1) : NaNs produced
+> 
+> 
+> led <- function(on){
++ for(r in 1:10){
++ for(c in 1:10){
++ cat("-")
++ }
++ cat("\n")
++ }
++ cat("\n")
++ }
+> 
+> 
+> led()
+----------
+----------
+----------
+----------
+----------
+----------
+----------
+----------
+----------
+----------
+
+> led(1)
+----------
+----------
+----------
+----------
+----------
+----------
+----------
+----------
+----------
+----------
+
+> led(c(1,2))
+----------
+----------
+----------
+----------
+----------
+----------
+----------
+----------
+----------
+----------
+
+> 
+> led()
+----------
+----------
+----------
+----------
+----------
+----------
+----------
+----------
+----------
+----------
+
+> led(c(1:10),seq(3,100,10),seq(7,100,10),91:100)
+Error in led(c(1:10), seq(3, 100, 10), seq(7, 100, 10), 91:100) : 
+  unused argument(s) (seq(3, 100, 10), seq(7, 100, 10), 91:100)
+> led(sample(100,30))
+----------
+----------
+----------
+----------
+----------
+----------
+----------
+----------
+----------
+----------
+
+> led()
+----------
+----------
+----------
+----------
+----------
+----------
+----------
+----------
+----------
+----------
+
+> led(c(1:10,seq(3,100,10),seq(7,100,10),91:100))
+----------
+----------
+----------
+----------
+----------
+----------
+----------
+----------
+----------
+----------
+
+> led(sample(100,30))
+----------
+----------
+----------
+----------
+----------
+----------
+----------
+----------
+----------
+----------
+
+> led <- function(on){
++ for(r in 1:10){
++ for(c in 1:10){
++ if(c %in% on && r ==1){ #deside if we need to put a - or a #
++ cat("#")
++ }
++ cat("-")
++ }
++ cat("\n")
++ }
++ cat("\n")
++ }
+> 
+> led()
+Error in match(x, table, nomatch = 0L) : 
+  argument "on" is missing, with no default
+> led(c(1:10,seq(3,100,10),seq(7,100,10),91:100))
+#-#-#-#-#-#-#-#-#-#-
+----------
+----------
+----------
+----------
+----------
+----------
+----------
+----------
+----------
+
+> 
+> led <- function(on){
++ for(r in 1:10){
++ for(c in 1:10){
++ if(c %in% on && r ==1){ #deside if we need to put a - or a #
++ cat("#")
++ }else{
++ cat("-")
++ }
++ }
++ cat("\n")
++ }
++ cat("\n")
++ }
+> 
+> led()
+Error in match(x, table, nomatch = 0L) : 
+  argument "on" is missing, with no default
+> led(c(1:10,seq(3,100,10),seq(7,100,10),91:100))
+##########
+----------
+----------
+----------
+----------
+----------
+----------
+----------
+----------
+----------
+
+> led(sample(100,30))
+#--#---#--
+----------
+----------
+----------
+----------
+----------
+----------
+----------
+----------
+----------
+
+> on <- c(1:10,seq(3,100,10),seq(7,100,10),91:100)
+> for(r in 1:10){
++ for(c in 1:10){
++ if(c %in% on && r ==1){ #deside if we need to put a - or a #
++ cat("#")
++ }else{
++ cat("-")
++ }
++ }
++ cat("\n")
++ }
+##########
+----------
+----------
+----------
+----------
+----------
+----------
+----------
+----------
+----------
+> 
+> c <- 3
+> c %in% on
+[1] TRUE
+> c <- 11
+> c %in% on
+[1] FALSE
+> matrix(0,10,10)
+      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10]
+ [1,]    0    0    0    0    0    0    0    0    0     0
+ [2,]    0    0    0    0    0    0    0    0    0     0
+ [3,]    0    0    0    0    0    0    0    0    0     0
+ [4,]    0    0    0    0    0    0    0    0    0     0
+ [5,]    0    0    0    0    0    0    0    0    0     0
+ [6,]    0    0    0    0    0    0    0    0    0     0
+ [7,]    0    0    0    0    0    0    0    0    0     0
+ [8,]    0    0    0    0    0    0    0    0    0     0
+ [9,]    0    0    0    0    0    0    0    0    0     0
+[10,]    0    0    0    0    0    0    0    0    0     0
+> matrix(0,1,10)
+     [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10]
+[1,]    0    0    0    0    0    0    0    0    0     0
+> matrix(0,10,1)
+      [,1]
+ [1,]    0
+ [2,]    0
+ [3,]    0
+ [4,]    0
+ [5,]    0
+ [6,]    0
+ [7,]    0
+ [8,]    0
+ [9,]    0
+[10,]    0
+> 1:10
+ [1]  1  2  3  4  5  6  7  8  9 10
+> t(t(1:10))
+      [,1]
+ [1,]    1
+ [2,]    2
+ [3,]    3
+ [4,]    4
+ [5,]    5
+ [6,]    6
+ [7,]    7
+ [8,]    8
+ [9,]    9
+[10,]   10
+> matrix(1:100,10,10)
+      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10]
+ [1,]    1   11   21   31   41   51   61   71   81    91
+ [2,]    2   12   22   32   42   52   62   72   82    92
+ [3,]    3   13   23   33   43   53   63   73   83    93
+ [4,]    4   14   24   34   44   54   64   74   84    94
+ [5,]    5   15   25   35   45   55   65   75   85    95
+ [6,]    6   16   26   36   46   56   66   76   86    96
+ [7,]    7   17   27   37   47   57   67   77   87    97
+ [8,]    8   18   28   38   48   58   68   78   88    98
+ [9,]    9   19   29   39   49   59   69   79   89    99
+[10,]   10   20   30   40   50   60   70   80   90   100
+> matrix(1:100,10,10,byRow=T)
+Error in matrix(1:100, 10, 10, byRow = T) : 
+  unused argument(s) (byRow = T)
+> matrix(1:100,10,10,byrow=TRUE)
+      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10]
+ [1,]    1    2    3    4    5    6    7    8    9    10
+ [2,]   11   12   13   14   15   16   17   18   19    20
+ [3,]   21   22   23   24   25   26   27   28   29    30
+ [4,]   31   32   33   34   35   36   37   38   39    40
+ [5,]   41   42   43   44   45   46   47   48   49    50
+ [6,]   51   52   53   54   55   56   57   58   59    60
+ [7,]   61   62   63   64   65   66   67   68   69    70
+ [8,]   71   72   73   74   75   76   77   78   79    80
+ [9,]   81   82   83   84   85   86   87   88   89    90
+[10,]   91   92   93   94   95   96   97   98   99   100
+> unlist(tolist(matrix(1:100,10,10)))
+Error in unlist(tolist(matrix(1:100, 10, 10))) : 
+  could not find function "tolist"
+> unlist(as.list(matrix(1:100,10,10)))
+  [1]   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20  21  22  23  24  25  26
+ [27]  27  28  29  30  31  32  33  34  35  36  37  38  39  40  41  42  43  44  45  46  47  48  49  50  51  52
+ [53]  53  54  55  56  57  58  59  60  61  62  63  64  65  66  67  68  69  70  71  72  73  74  75  76  77  78
+ [79]  79  80  81  82  83  84  85  86  87  88  89  90  91  92  93  94  95  96  97  98  99 100
+> unlist(as.list(matrix(1:100,10,10,byrow=TRUE)))
+  [1]   1  11  21  31  41  51  61  71  81  91   2  12  22  32  42  52  62  72  82  92   3  13  23  33  43  53
+ [27]  63  73  83  93   4  14  24  34  44  54  64  74  84  94   5  15  25  35  45  55  65  75  85  95   6  16
+ [53]  26  36  46  56  66  76  86  96   7  17  27  37  47  57  67  77  87  97   8  18  28  38  48  58  68  78
+ [79]  88  98   9  19  29  39  49  59  69  79  89  99  10  20  30  40  50  60  70  80  90 100
+> matrix(0,10,0)
+
+ [1,]
+ [2,]
+ [3,]
+ [4,]
+ [5,]
+ [6,]
+ [7,]
+ [8,]
+ [9,]
+[10,]
+> matrix(0,10,1)
+      [,1]
+ [1,]    0
+ [2,]    0
+ [3,]    0
+ [4,]    0
+ [5,]    0
+ [6,]    0
+ [7,]    0
+ [8,]    0
+ [9,]    0
+[10,]    0
+> save.image("X:\\Data\\My Documents\\.RData")
+> save.image("X:\\Data\\My Documents\\.RData")
+> 
