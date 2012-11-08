@@ -80,10 +80,13 @@ faculty <- function(x){ #function & return
 
 
 #Q3.3
-mar
- for(column in 1:ncol(x)){
-+ cat(column,"=",mean(x[,column]),"\n")
-+ }
+x <- matrix(1:100,10,10)
+r.means <- function(x){
+	for(column in 1:ncol(x)){
+		cat("col",column,"=",mean(x[,column]),"\n")
+	}
+}
+ 
 #Q3.4
 prime <- function(x, verbose = FALSE){ #verbose--details & descriptions,invisible--results
 	round.x <- round(x,d=0)
@@ -170,27 +173,27 @@ led()
 
 
 #Assignment3.2
-#Q3.6
-x <- matrix(runif(100,1,2.1),10,10)
+#Q3.6 calculate the means of each row and column
+x <- matrix(runif(100,1,2.1),20,10)
 dimnames(x)[[1]] <- letters[1:10]
 x
-row.mean <- apply(x, 1, mean) #means of each row
-col.mean <- apply(x, 2, mean) #means of each column
-row.mean
-col.mean
-ind.r <- which.max(row.mean) #show the index of the maximum among the means of each row
-ind.c <- which.max(col.mean) #show the index of the maximum among the means of each column
-which.max(row.mean)
-which.max(col.mean)
-row.mean[ind.r] #show the value of the maximum among the means of each row
-col.mean[ind.c] #show the value of the maximum among the means of each column
-col.max <- apply(x,2,max)
-col.max
+r.mean <- apply(x, 1, mean) #means of each row
+c.mean <- apply(x, 2, mean) #means of each column
+r.mean
+c.mean
+#Q3.7 which column has the highest mean
+ind.c <- which.max(c.mean) #show the index of the maximum among the means of each column
+which.max(c.mean)
+c.mean[ind.c] #show the value of the maximum among the means of each column
+max(apply(x, 2, mean))
+#show the column??
+x[,ind.c]
+#Q3.8 within the column that has the highest mean, which is the maximum number
+which.max(x[,ind.c])
+#Q3.9 within the column that has the highest mean, which is the second maximum number
+which.max(x[,ind.c][-maxofcol])
 
-for(column in 1:ncol(x)){
-	cat(column,"=",mean(x[,column]),"\n")
-}
-
+#Q3.10 if the mean of columns is higher than 2, calculate the means of these columns
 
 
 
@@ -222,7 +225,7 @@ for(column in 1:ncol(x)){
  [8,]   71   72   73   74   75   76   77   78   79    80
  [9,]   81   82   83   84   85   86   87   88   89    90
 [10,]   91   92   93   94   95   96   97   98   99   100
-> unlist(as.list(matrix(1:100,10,10))) #from matrix to vector
+> unlist(as.list(matrix(1:100,10,10))) #from matrix to vector, notice the direction!
   [1]   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20  21  22  23  24  25  26
  [27]  27  28  29  30  31  32  33  34  35  36  37  38  39  40  41  42  43  44  45  46  47  48  49  50  51  52
  [53]  53  54  55  56  57  58  59  60  61  62  63  64  65  66  67  68  69  70  71  72  73  74  75  76  77  78
