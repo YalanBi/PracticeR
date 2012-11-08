@@ -80,37 +80,53 @@ faculty <- function(x){ #function & return
 
 
 #Q3.3
-
+mar
+ for(column in 1:ncol(x)){
++ cat(column,"=",mean(x[,column]),"\n")
++ }
 #Q3.4
-prime <- function(x, verbose = FALSE){
-	if(x < 0){
-		if(verbose) cat(x,"is negtive")
-		return(invisible(FALSE))
-	}
-	else if(x %in% 0:1){
-		if(verbose) cat(x,"Not prime by definition")
-		return(invisible(FALSE))
-	}
-	else if(x > 2 && x %% 2 == 0){
-		if(verbose) cat(x,"is not a prime")
-		return(invisible(FALSE))
-	}else{
-		r <- x %% n
-		n <- 2
-		while(r != 0 && n < (x/2)){
-			n <- n+1
-			r <- x %% n
+prime <- function(x, verbose = FALSE){ #verbose--details & descriptions,invisible--results
+	round.x <- round(x,d=0)
+	if(x == round.x){
+		if(x < 0){
+			if(verbose) cat(x,"is negtive.\n") #If the content of "if" is within one line, don't need"{}"
+			invisible(FALSE)
 		}
-		if(n < (x/2)){
-			if(verbose) cat(x,"is not a prime")
-			return(invisible(FALSE))
+		else if(x %in% 0:1){
+			if(verbose) cat(x,"Not prime by definition.\n")
+			invisible(FALSE)
+		}
+		else if(x > 2 && x %% 2 == 0){
+			if(verbose) cat(x,"is not a prime.\n")
+			return(invisible(FALSE)) #return can be omitted
 		}else{
-			if(verbose) cat(x,"is a prime!")
-			return(invisible(TRUE))
+			r <- x %% n
+			n <- 2
+			while(r != 0 && n < (x/2)){
+				n <- n+1
+				r <- x %% n
+			}
+			if(n < (x/2)){
+				if(verbose) cat(x,"is not a prime.\n")
+				return(invisible(FALSE))
+			}else{
+				if(verbose) cat(x,"is a prime!\n")
+				return(invisible(TRUE))
+			}
 		}
+	}else{
+		if(verbose) cat(x,"is not a integer.\n")
+		return(invisible(FALSE))
 	}
 }
-
+#By return, the result of function has been stored and is able for later use.
+> if(prime(5)){cat("Yeah\n")}else{cat("Neah\n")}
+Yeah
+#Because we say verbose=FALSE before, cat is invisible. Here say TRUE, so the description is visible.
+> if(prime(5,TRUE)){cat("Yeah\n")}else{cat("Neah\n")}
+5 is a prime!
+Yeah
+#Test how long the computer uses to test from 1 to 1000.
 res <- NULL
 for(x in 1:1000){
 	if(prime(x)){ 
@@ -122,31 +138,35 @@ for(x in 1:1000){
 #Q3.5
 
 led <- function(on){
-	for(r in 1:10){
-		for(c in 1:10){
-			#deside if we need to put a - or a #
+	for(row_ in 1:10){
+		for(col_ in 1:10){#deside if we need to put a - or a #
 			cat("-")
 		}
 		cat("\n")
 	}
 	cat("\n")
 }
-
 led()
-led(c(1:10,seq(3,100,10),seq(7,100,10),91:100))
+led(col_(1:10,seq(3,100,10),seq(7,100,10),91:100))
 led(sample(100,30))
 
-matrix(1:100,10,10)
-On <- function(x){
-	S <- sample(100,30,replace=FALSE)
-	for(x in 1:100){
-		if(x %in% S){
-			cat("#")
-		}
-		cat("-")
+led <- function(on){
+	if(missing(on)) on <- sample(100,30,replace = FALSE)
+	for(row_ in 1:10){ #the color purple means these letters represents a function in R
+		for(col_ in 1:10){
+			if(((row_-1)*10+col_) %in% on){ #deside if we need to put a - or a #
+					cat("#")
+				}else{
+					cat("-")
+				}
+			}
+		cat("\n")
 	}
+	cat("\n")
 }
-matrix(On,10,10)
+led()
+
+
 
 
 #Assignment3.2
@@ -170,3 +190,45 @@ col.max
 for(column in 1:ncol(x)){
 	cat(column,"=",mean(x[,column]),"\n")
 }
+
+
+
+
+
+
+> 1:10 #vector
+ [1]  1  2  3  4  5  6  7  8  9 10
+> t(t(1:10)) #matrix
+      [,1]
+ [1,]    1
+ [2,]    2
+ [3,]    3
+ [4,]    4
+ [5,]    5
+ [6,]    6
+ [7,]    7
+ [8,]    8
+ [9,]    9
+[10,]   10
+> matrix(1:100,10,10,byrow=TRUE) #byrow!
+      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10]
+ [1,]    1    2    3    4    5    6    7    8    9    10
+ [2,]   11   12   13   14   15   16   17   18   19    20
+ [3,]   21   22   23   24   25   26   27   28   29    30
+ [4,]   31   32   33   34   35   36   37   38   39    40
+ [5,]   41   42   43   44   45   46   47   48   49    50
+ [6,]   51   52   53   54   55   56   57   58   59    60
+ [7,]   61   62   63   64   65   66   67   68   69    70
+ [8,]   71   72   73   74   75   76   77   78   79    80
+ [9,]   81   82   83   84   85   86   87   88   89    90
+[10,]   91   92   93   94   95   96   97   98   99   100
+> unlist(as.list(matrix(1:100,10,10))) #from matrix to vector
+  [1]   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20  21  22  23  24  25  26
+ [27]  27  28  29  30  31  32  33  34  35  36  37  38  39  40  41  42  43  44  45  46  47  48  49  50  51  52
+ [53]  53  54  55  56  57  58  59  60  61  62  63  64  65  66  67  68  69  70  71  72  73  74  75  76  77  78
+ [79]  79  80  81  82  83  84  85  86  87  88  89  90  91  92  93  94  95  96  97  98  99 100
+> unlist(as.list(matrix(1:100,10,10,byrow=TRUE))) #byrow or not!!!
+  [1]   1  11  21  31  41  51  61  71  81  91   2  12  22  32  42  52  62  72  82  92   3  13  23  33  43  53
+ [27]  63  73  83  93   4  14  24  34  44  54  64  74  84  94   5  15  25  35  45  55  65  75  85  95   6  16
+ [53]  26  36  46  56  66  76  86  96   7  17  27  37  47  57  67  77  87  97   8  18  28  38  48  58  68  78
+ [79]  88  98   9  19  29  39  49  59  69  79  89  99  10  20  30  40  50  60  70  80  90 100
