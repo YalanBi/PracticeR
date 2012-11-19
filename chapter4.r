@@ -43,19 +43,27 @@ pheno <- read.table("phenotypes.txt")
 class(pheno)
 boxplot(pheno,main = "boxplot(phenotype, horizontal = TRUE)",horizontal = TRUE)
 boxplot(t(pheno), main = "boxplot(phenotype, horizontal = TRUE)",horizontal = TRUE)
+hist(pheno[,5]) #Display Column 5 by histogram
+hist(pheno[,5],breaks=20)
 
 #Q4.3
 geno <- read.table("genotypes.txt")
 geno <- as.matrix(geno)
-heatmap(geno,Colv=NULL,scale=c("row", "column", "none"), na.rm = TRUE) #???
-heatmap(apply(geno,2,as.numeric),Colv=NA)
-heatmap(as.matrix(geno),Colv=NA,Rowv=NA)
-res <- heatmap(as.matrix(geno),Colv=NA,keep.dendro=TRUE)
-plot(res$Rowv)
-res$Rowv
-cut(res$Rowv,h=8)
-unlist(cut(res$Rowv,h=8)$lower[[19]])
+heatmap(apply(geno,2,as.numeric),Colv=NA) #no dendrogram for col.
+heatmap(as.matrix(geno),Colv=NA,Rowv=NA) #no dendrogram for col. and row
+res <- heatmap(as.matrix(geno),Colv=NA,keep.dendro=TRUE) #store the dendrogram as a result
+plot(res$Rowv) #only show the dendrogram
+res$Rowv #summary of dendrogram--'dendrogram' with 2 branches and 162 members total, at height 9.899495
+cut(res$Rowv,h=8) #divide into 2 parts--higher and lower than 8
+unlist(cut(res$Rowv,h=8)$lower[[9]])
+res <- heatmap(cor(t(as.matrix(geno)),use="pair"),Colv=NA,keep.dendro=TRUE) #correlation
+
 #Q4.4
 geno <- read.table("genotypes.txt")
 dim(geno)
-plot(pheno[,1],pch=20,col="red")
+plot(pheno[,1],pch=20,col=c("red","green"))
+plot(pheno[,1],pch=20,col=geno[,1])
+res <- cbind(pheno[,1],geno[,1]) #form a new matrix
+which(res[,2]==1)
+res[which(res[,2]==1),]
+boxplot(res[which(res[,2]==1),1], res[which(res[,2]==2),1])
