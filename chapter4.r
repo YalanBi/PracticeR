@@ -44,7 +44,7 @@ class(pheno)
 boxplot(pheno,main = "boxplot(phenotype, horizontal = TRUE)",horizontal = TRUE)
 boxplot(t(pheno), main = "boxplot(phenotype, horizontal = TRUE)",horizontal = TRUE)
 hist(pheno[,5]) #Display Column 5 by histogram
-hist(pheno[,5],breaks=20)
+hist(pheno[,5],breaks=20) #breaks -> the numbers of columns
 
 #Q4.3
 geno <- read.table("genotypes.txt")
