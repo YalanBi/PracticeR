@@ -69,7 +69,7 @@ markerMean_Pvalue <- function(geno, pheno, marker = 1, phenotype = 1){
 	p1 <- mean(pheno[g1, phenotype],na.rm=TRUE)
 	p2 <- mean(pheno[g2, phenotype],na.rm=TRUE)
 	pvalue <- t.test(pheno[g1, phenotype],pheno[g2, phenotype])$p.value
-	#cat("Marker",marker,"Mean:", p1,",", p2,";P-value:",pvalue,"\n")
+	cat("Marker",marker,"Mean:", p1,",", p2,";P-value:",pvalue,"\n")
 	return(c(phenotype, marker, p1, p2, pvalue))
 }
 result <- NULL
@@ -96,6 +96,12 @@ for(x in 1:ncol(geno)){
 	g2 <- which(geno[,x] == 2)
 	vec <- c(vec,t.test(pheno[g1,p],pheno[g2,p])$p.value)
 }
+vec_new <- NULL
+for(x in 1:ncol(geno)){
+	g1 <- which(geno[,x] == 1)
+	g2 <- which(geno[,x] == 2)
+	vec_new <- c(vec,t.test(newpheno[g1,p],newpheno[g2,p])$p.value)
+}
 #show p-values by a plot
 plot(vec,t='l')
 abline(h=0.05,lty=2,col='orange') #add a line at the height of 0.05---> significant or not
@@ -103,7 +109,8 @@ abline(h=0.01,lty=2,col='green')
 #a better display
 plot(1-vec,t='l')
 #a more better way for analysis
-plot(-log10(vec),t='l')
+plot(-log10(new_vec),t='l')
+points(-log(vec),col="red")
 
 
 
